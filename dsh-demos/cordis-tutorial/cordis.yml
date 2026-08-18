@@ -1,1 +1,4 @@
 - name: './hello.ts'
+- name: './lifecycle.ts'
+- name: './greeter.ts'
+- name: './greeter-consumer.ts'
