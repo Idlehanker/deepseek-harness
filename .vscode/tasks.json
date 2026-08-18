@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start dsh headless (inspect 9229)",
+      "type": "shell",
+      "command": "node --inspect=9229 --import tsx/esm apps/cli/src/bin.ts --profile headless \"list files\"",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start dsh web (inspect 9229)",
+      "type": "shell",
+      "command": "node --inspect=9229 --import tsx/esm apps/cli/src/bin.ts web",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start dsh tui (inspect-brk 9229)",
+      "type": "shell",
+      "command": "node --inspect-brk=9229 --import tsx/esm apps/cli/src/bin.ts --profile tui",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start dsh dump-config (inspect 9229)",
+      "type": "shell",
+      "command": "node --inspect=9229 --import tsx/esm apps/cli/src/bin.ts --profile headless --dump-config",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
