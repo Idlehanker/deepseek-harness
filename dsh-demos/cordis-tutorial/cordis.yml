@@ -1,4 +1,25 @@
-- name: './hello.ts'
-- name: './lifecycle.ts'
-- name: './greeter.ts'
-- name: './greeter-consumer.ts'
+# - name: './hello.ts'
+# - name: './lifecycle.ts'
+# - name: './greeter.ts'
+# - name: './greeter-consumer.ts'
+
+# - name: './stats.ts'
+# - name: './reporter.ts'
+
+# - id: logger
+#   name: '@deepseek-ai/cordis-plugin-logger-console'
+# - id: timer
+#   name: '@deepseek-ai/cordis-plugin-timer'
+# - id: hmr
+#   name: '@deepseek-ai/cordis-plugin-hmr'
+#   config:
+#     root: ['.']
+# - id: hello
+#   name: './hello.ts'
+
+# - id: logger
+#   name: '@deepseek-ai/cordis-plugin-logger-console'
+- name: '@deepseek-ai/dsh-system-prompt'
+- name: '@deepseek-ai/dsh-tools'
+- name: './greet-tool.ts'
+- name: './tool-logger.ts'
