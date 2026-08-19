@@ -1,0 +1,28 @@
+# The dsh-tui bundle patch: interactive terminal chat mode directly over
+# dsh-base. It mounts no Host, HTTP server, Web runtime, or browser plugin.
+# The runner creates one Agent, streams assistant text and tool indicators
+# from live session events, answers approval questions inline on the
+# terminal, and loops until /exit, /quit, or EOF.
+
+- id: system-prompt
+  config:
+    persona: >-
+      You are a coding agent powered by the {{model}} model. Your working directory is {{cwd}}.
+
+# The shared module-reload HMR row stays off; the launcher's watch-only
+# fallback still keeps the user patch layers live until the session exits.
+- id: hmr
+  disabled: true
+
+- id: tools
+  config:
+    # Keep the same temporary process-wide Code Mode opt-in as the Web surface.
+    mode: !!js process.env.DSH_TOOLS_MODE
+
+- insert:
+    # Code Mode is a core execution capability, not a Web component.
+    - id: code-runtime
+      name: '@deepseek-ai/dsh-code-runtime-worker-thread'
+
+    - id: tui-runner
+      name: '@deepseek-ai/dsh-tui'
